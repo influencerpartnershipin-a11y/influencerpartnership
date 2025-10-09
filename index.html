@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPCollabs - Influencer Partnership | Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a0d2e 50%, #2a1b3d 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeInDown 1s ease-out;
+        }
+        .logo-placeholder {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        .tagline {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #a0a0a0;
+        }
+
+        /* Main Section */
+        main {
+            text-align: center;
+            padding: 80px 0;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        .headline {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00d4ff, #7b68ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtext {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #a0a0a0;
+        }
+        .description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #b0b0b0;
+        }
+        .subscription-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .email-input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .email-input::placeholder {
+            color: #a0a0a0;
+        }
+        .email-input:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .notify-btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #00d4ff, #7b68ee);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        .notify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+            background: linear-gradient(45deg, #7b68ee, #00d4ff);
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 80px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .countdown-item:hover {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+        }
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .contact-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(0, 212, 255, 0.1);
+        }
+        .contact-link:hover {
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .placeholder-link {
+            color: #a0a0a0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 2.5rem;
+            }
+            .subtext {
+                font-size: 1.3rem;
+            }
+            .subscription-form {
+                padding: 0 20px;
+            }
+            .countdown {
+                gap: 15px;
+            }
+            .countdown-item {
+                min-width: 60px;
+                padding: 15px;
+            }
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            .contact-links {
+                gap: 20px;
+            }
+            .contact h2 {
+                font-size: 1.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .headline {
+                font-size: 2rem;
+            }
+            .subscription-form {
+                gap: 10px;
+            }
+            .email-input, .notify-btn {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Placeholder for logo; replace with <img src="logo.png" alt="IPCollabs Logo" class="logo"> -->
+            <div class="logo-placeholder">IPCollabs</div>
+            <div class="company-name">Influencer Partnership</div>
+            <div class="tagline">Bridging Brands and Influencers</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="headline">We’re Launching Soon!</h1>
+            <p class="subtext">Building something exciting for the creator economy.</p>
+            <p class="description">Join our journey to connect brands with influencers like never before.</p>
+            
+            <form class="subscription-form" onsubmit="handleSubscribe(event)">
+                <input type="email" class="email-input" placeholder="Enter your email to get notified" required>
+                <button type="submit" class="notify-btn">Notify Me</button>
+            </form>
+
+            <!-- Countdown Timer -->
+            <div class="countdown" id="countdown"></div>
+        </div>
+    </main>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-links">
+                <a href="mailto:ipcollabs@influencerpartnership.shop" class="contact-link">Email: ipcollabs@influencerpartnership.shop</a>
+                <a href="https://instagram.com/influencer_partnership" target="_blank" class="contact-link">Instagram: @influencer_partnership</a>
+                <a href="#" class="contact-link placeholder-link">LinkedIn (Coming Soon)</a>
+                <a href="#" class="contact-link placeholder-link">X (Coming Soon)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 IPCollabs | Influencer Partnership | All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Email Subscription Handler (placeholder - in production, send to backend)
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('.email-input').value;
+            if (email) {
+                alert('Thank you! We\'ll notify you when we launch. (This is a demo - integrate with your backend.)');
+                event.target.reset();
+            }
+        }
+
+        // Countdown Timer (assuming launch date: 60 days from now)
+        function updateCountdown() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 60); // Adjusted to 60 days
+            const now = new Date().getTime();
+            const distance = launchDate.getTime() - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const countdownEl = document.getElementById('countdown');
+            if (distance < 0) {
+                countdownEl.innerHTML = '<div class="countdown-item"><div class="countdown-number">Launched!</div><div class="countdown-label">We\'re Live</div></div>';
+                return;
+            }
+
+            countdownEl.innerHTML = `
+                <div class="countdown-item">
+                    <div class="countdown-number">${days}</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">${hours}</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">${minutes}</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">${seconds}</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            `;
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
